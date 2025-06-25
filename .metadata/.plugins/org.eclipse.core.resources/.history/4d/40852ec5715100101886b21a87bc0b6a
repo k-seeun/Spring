@@ -1,0 +1,28 @@
+package com.example.demo.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.example.demo.mapper.BankMapper;
+import com.example.demo.model.BankDTO;
+
+@Service
+@Transactional
+public class BankService {
+	@Autowired
+	private BankMapper bankMapper;
+	
+	public List<BankDTO> getAllBank(){
+		return bankMapper.getAllBank();
+	}
+	public int InsertBank(BankDTO bankDTO) {
+		return bankMapper.InsertBank(bankDTO);
+	}
+	public int withdrawMoney(BankDTO bankDTO) {
+	    return bankMapper.withdrawMoney(bankDTO);
+	}
+
+}

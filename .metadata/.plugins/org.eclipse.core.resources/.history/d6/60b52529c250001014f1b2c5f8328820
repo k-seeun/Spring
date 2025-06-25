@@ -1,0 +1,12 @@
+package com.example.demo.mapper;
+
+import java.math.BigDecimal;
+import java.util.List;
+
+import com.example.demo.model.BankDTO;
+
+public interface BankMapper {
+	List<BankDTO> getAllBank();
+	int InsertBank(BankDTO bankDTO);
+	int withdrawMoney(int id, BigDecimal amount);
+}

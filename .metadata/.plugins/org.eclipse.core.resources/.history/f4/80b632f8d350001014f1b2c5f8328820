@@ -1,0 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <!-- JSTL 사용하기 위한 설정 -->
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Bank List</title>
+</head>
+<body>
+<form action="/bank" method="post">
+<input type="text" name="name" placeholder="이름">
+<input type="number" name="balance" placeholder="금액">
+<button name="action" value="deposit">입금</button>
+<button name="action" value="withdrwa">출금</button>
+</form>
+<ul>
+<c:forEach var="bank" items="${bankList}">
+<li>${bank.name} : ${bank.balance} 원</li>
+</c:forEach>
+</ul>
+</body>
+</html>

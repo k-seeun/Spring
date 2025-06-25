@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <!-- JSTL 사용하기 위한 설정 -->
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Todo List</title>
+</head>
+<body>
+	<form action="/todo" method="post">
+  <input type="text" name="task">
+  <button type="submit">추가</button>
+  </form>
+  <ul>
+  <c:forEach var="todo" items="${todoList}">
+  <li>${todo.task } <button>삭제</button></li>
+  </c:forEach>
+  </ul>
+</body>
+</html>
+    

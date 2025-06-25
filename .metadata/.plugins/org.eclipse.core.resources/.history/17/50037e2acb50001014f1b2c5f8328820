@@ -1,0 +1,26 @@
+package com.example.demo.service;
+
+import java.math.BigDecimal;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.mapper.BankMapper;
+import com.example.demo.model.BankDTO;
+
+@Service
+public class BankService {
+	@Autowired
+	private BankMapper bankMapper;
+	
+	public List<BankDTO> getAllBank(){
+		return bankMapper.getAllBank();
+	}
+	public int InsertBank(BankDTO bankDTO) {
+		return bankMapper.InsertBank(bankDTO);
+	}
+	public int withdrawMoney(int id, BigDecimal amount) {
+		return bankMapper.withdrawMoney(id, amount);
+	}
+}

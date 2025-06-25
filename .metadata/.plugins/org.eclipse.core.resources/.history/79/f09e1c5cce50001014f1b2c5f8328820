@@ -1,0 +1,14 @@
+package com.example.demo.mapper;
+
+import java.math.BigDecimal;
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
+import com.example.demo.model.BankDTO;
+
+public interface BankMapper {
+	List<BankDTO> getAllBank();
+	int InsertBank(BankDTO bankDTO);
+	int withdrawMoney(BankDTO bankDTO);
+}

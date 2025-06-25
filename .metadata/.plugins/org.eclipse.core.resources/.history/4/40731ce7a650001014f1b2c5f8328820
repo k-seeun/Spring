@@ -1,0 +1,33 @@
+package com.example.demo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.example.demo.model.TodoDTO;
+
+
+@Controller
+public class TodoController {
+	
+	private List<TodoDTO> todoList = new ArrayList<>();
+	
+	@GetMapping("/todo")
+	public String showTodoPage(Model model) {
+		model.addAttribute("todoList", todoList);
+		return "todo";
+	}
+	
+	@PostMapping("/todo")
+	public String addTodo (@RequestParam("task") String task) {
+		TodoDTO todo = new TodoDTO();
+		todo.setTask(task);
+		todoList.add(todo);
+		return "redirect:/todo";
+	}
+}

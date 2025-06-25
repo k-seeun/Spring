@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.example.demo.mapper.BankMapper">
+ <select id="getAllBank" resultType="BankDTO">
+ SELECT * FROM bank_user
+ </select>
+ <insert id="InsertBank" parameterType="BankDTO">
+ INSERT INTO bank_user(name, balance) VALUES(#{name}, #{balance})
+ </insert>
+ <update id="withdrawMoney" parameterType="BankDTO">
+ UPDATE bank_user SET balance = balance - #{balance} WHERE id = #{id}
+ </update>
+  <update id="depositMoney" parameterType="BankDTO">
+ UPDATE bank_user SET balance = balance + #{balance} WHERE id = #{id}
+ </update>
+ 
+ </mapper>

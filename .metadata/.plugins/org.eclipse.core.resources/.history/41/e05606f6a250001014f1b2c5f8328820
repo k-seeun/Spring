@@ -1,0 +1,11 @@
+package com.example.demo.model;
+
+public class TodoDTO {
+	private String task;
+	public String setTask() {
+		return task;
+	}
+	public void setTask(String task) {
+		this.task = task;
+	}
+}

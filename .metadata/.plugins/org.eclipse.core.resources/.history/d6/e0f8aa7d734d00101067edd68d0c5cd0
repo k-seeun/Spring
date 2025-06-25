@@ -1,0 +1,23 @@
+package com.example.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.mapper.UserMapper;
+import com.example.model.UserDTO;
+
+@Service
+public class UserService implements UserMapper {
+	@Autowired
+	private UserMapper userMapper; //필드 주입
+	
+	/*
+	 * public UserService(UserMapper userMapper) { this.userMapper = userMapper; }
+	 * //생성자 주입
+	 */
+	public List<UserDTO> getAllUser(){
+		return userMapper.getAllUser();
+	}
+	}
